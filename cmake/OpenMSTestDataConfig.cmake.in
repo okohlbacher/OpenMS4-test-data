@@ -1,6 +1,7 @@
 @PACKAGE_INIT@
 set(OpenMSTestData_VERSION "@PROJECT_VERSION@")
 set(OpenMSTestData_SOURCE_REVISION "@OpenMSTestData_SOURCE_REVISION@")
+set(OpenMSTestData_SOURCE_DIRTY "@OpenMSTestData_SOURCE_DIRTY@")
 set_and_check(OpenMSTestData_TOPP_DIR "@PACKAGE_OpenMSTestData_TOPP_DIR@")
 set_and_check(OpenMSTestData_REGRESSION_SOURCE_DIR "@PACKAGE_OpenMSTestData_REGRESSION_SOURCE_DIR@")
 check_required_components(OpenMSTestData)
