@@ -6,14 +6,14 @@ include(cmake/OpenMS4Dependencies.cmake)
 if(NOT OPENMS4_SOURCE_REVISION AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/OpenMSTestDataSource.cmake")
   include("${CMAKE_CURRENT_SOURCE_DIR}/OpenMSTestDataSource.cmake")
 endif()
-openms4_source_revision(OpenMSTestData_SOURCE_REVISION)
+openms4_source_revision(OpenMSTestData_SOURCE_REVISION OpenMSTestData_SOURCE_DIRTY)
 set(OpenMSTestData_REGRESSION_SOURCE_DIR share/openms4-test-data/${PROJECT_VERSION})
 set(OpenMSTestData_TOPP_DIR ${OpenMSTestData_REGRESSION_SOURCE_DIR}/topp)
 configure_package_config_file(cmake/OpenMSTestDataConfig.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/OpenMSTestDataConfig.cmake
   INSTALL_DESTINATION lib/cmake/OpenMSTestData PATH_VARS OpenMSTestData_TOPP_DIR OpenMSTestData_REGRESSION_SOURCE_DIR)
 write_basic_package_version_file(${CMAKE_CURRENT_BINARY_DIR}/OpenMSTestDataConfigVersion.cmake VERSION ${PROJECT_VERSION} COMPATIBILITY ExactVersion ARCH_INDEPENDENT)
 file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/OpenMSTestDataSource.cmake"
-  "set(OPENMS4_SOURCE_REVISION \"${OpenMSTestData_SOURCE_REVISION}\")\n")
+  "set(OPENMS4_SOURCE_REVISION \"${OpenMSTestData_SOURCE_REVISION}\")\nset(OPENMS4_SOURCE_DIRTY \"${OpenMSTestData_SOURCE_DIRTY}\")\n")
 install(DIRECTORY topp/ DESTINATION ${OpenMSTestData_TOPP_DIR})
 install(FILES CMakeLists.txt dependencies.lock.json License.txt
   "${CMAKE_CURRENT_BINARY_DIR}/OpenMSTestDataSource.cmake"

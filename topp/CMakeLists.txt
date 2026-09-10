@@ -104,34 +104,31 @@ endforeach()
 add_test("TOPPWRITEINI_OVERWRITE" ${TOPP_BIN_PATH}/PeakPickerHiRes${OPENMS4_EXECUTABLE_SUFFIX} -test -write_ini "${TESTS_TEMP_DIR}/WRITE_INI.tmp.ini" -ini "${DATA_DIR_TOPP}/WRITE_INI_IN.ini")
 add_test("TOPPWRITEINI_OVERWRITE_out" ${DIFF} -in1 ${TESTS_TEMP_DIR}/WRITE_INI.tmp.ini -in2 "${DATA_DIR_TOPP}/WRITE_INI_OUT.ini" -whitelist "version")
 set_tests_properties("TOPPWRITEINI_OVERWRITE_out" PROPERTIES DEPENDS "TOPPWRITEINI_OVERWRITE")
-##
-## Test if invalid arguments or values (from INI or CLI) lead to immediate exit
-##
-## PARAM-VALUES:
-add_test("TOPP_INI_INVALIDVALUE" ${TOPP_BIN_PATH}/PeakPickerHiRes${OPENMS4_EXECUTABLE_SUFFIX} -ini ${DATA_DIR_TOPP}/degenerate_cases/PPHiRes_invalidValue.ini )
-# > Invalid string parameter value 'THISVALUEISINVALID' for parameter 'processOption' given! Valid values are: 'inmemory,lowmemory'. Updating failed!
-# > Parameters passed to 'PeakPickerHiRes' are invalid. To prevent usage of wrong defaults, please update/fix the parameters!
-set_tests_properties("TOPP_INI_INVALIDVALUE" PROPERTIES WILL_FAIL 1)
-## ... the same as explicit command line option (instead of INI)
-add_test("TOPP_CLI_INVALIDVALUE" ${TOPP_BIN_PATH}/PeakPickerHiRes${OPENMS4_EXECUTABLE_SUFFIX} -processOption THISVALUEISINVALID )
-set_tests_properties("TOPP_CLI_INVALIDVALUE" PROPERTIES WILL_FAIL 1)
-
-## test algorithm section parameters (not directly registered in TOPPBase); they should fail just the same
-add_test("TOPP_INI_INVALIDVALUE_SECTION" ${TOPP_BIN_PATH}/PeakPickerHiRes${OPENMS4_EXECUTABLE_SUFFIX} -ini ${DATA_DIR_TOPP}/degenerate_cases/PPHiRes_invalidValueSection.ini )
-set_tests_properties("TOPP_INI_INVALIDVALUE_SECTION" PROPERTIES WILL_FAIL 1)
-## ... the same as explicit command line option (instead of INI)
-add_test("TOPP_CLI_INVALIDVALUE_SECTION" ${TOPP_BIN_PATH}/PeakPickerHiRes${OPENMS4_EXECUTABLE_SUFFIX} -algorithm:report_FWHM_unit THISVALUEISINVALID )
-set_tests_properties("TOPP_CLI_INVALIDVALUE_SECTION" PROPERTIES WILL_FAIL 1)
-
-## PARAM-NAMES:
-add_test("TOPP_INI_INVALIDNAME" ${TOPP_BIN_PATH}/PeakPickerHiRes${OPENMS4_EXECUTABLE_SUFFIX} -ini ${DATA_DIR_TOPP}/degenerate_cases/PPHiRes_invalidParamName.ini )
-# > Unknown (or deprecated) Parameter 'INVALIDPARAMNAME_BASE' given in old parameter file! Update failed!
-# > Unknown (or deprecated) Parameter 'algorithm:invalidParamName' given in old parameter file! Update failed!
-# > Parameters passed to 'PeakPickerHiRes' are invalid. To prevent usage of wrong defaults, please update/fix the parameters!
-set_tests_properties("TOPP_INI_INVALIDNAME" PROPERTIES WILL_FAIL 1)
-## ... the same as explicit command line option (instead of INI)
-add_test("TOPP_CLI_INVALIDNAME" ${TOPP_BIN_PATH}/PeakPickerHiRes${OPENMS4_EXECUTABLE_SUFFIX} -algorithm:invalidParamName somevalue )
-set_tests_properties("TOPP_CLI_INVALIDNAME" PROPERTIES WILL_FAIL 1)
+# Exact failure assertions for malformed user parameters. Exit 6 is
+# TOPPBase::ILLEGAL_PARAMETERS; missing files, loader errors and signals must fail.
+function(add_parameter_failure name diagnostics)
+  add_test(NAME "${name}" COMMAND "${CMAKE_COMMAND}"
+    "-DTOOL_EXECUTABLE=${TOPP_BIN_PATH}/PeakPickerHiRes${OPENMS4_EXECUTABLE_SUFFIX}"
+    "-DTOOL_ARGUMENTS=${ARGN}" "-DEXPECTED_EXIT_CODE=6"
+    "-DEXPECTED_DIAGNOSTICS=${diagnostics}"
+    -P "${PROJECT_SOURCE_DIR}/../cmake/ExpectToolFailure.cmake")
+endfunction()
+set(_invalid_final "Parameters passed to 'PeakPickerHiRes' are invalid")
+set(_invalid_process "Invalid string parameter value 'THISVALUEISINVALID' for parameter 'processOption';${_invalid_final}")
+set(_invalid_section "Invalid string parameter value 'THISVALUEISINVALID' for parameter 'report_FWHM_unit';${_invalid_final}")
+add_parameter_failure(TOPP_INI_INVALIDVALUE "${_invalid_process}"
+  -ini "${DATA_DIR_TOPP}/degenerate_cases/PPHiRes_invalidValue.ini")
+add_parameter_failure(TOPP_CLI_INVALIDVALUE "${_invalid_process}"
+  -processOption THISVALUEISINVALID)
+add_parameter_failure(TOPP_INI_INVALIDVALUE_SECTION "${_invalid_section}"
+  -ini "${DATA_DIR_TOPP}/degenerate_cases/PPHiRes_invalidValueSection.ini")
+add_parameter_failure(TOPP_CLI_INVALIDVALUE_SECTION "${_invalid_section}"
+  -algorithm:report_FWHM_unit THISVALUEISINVALID)
+add_parameter_failure(TOPP_INI_INVALIDNAME
+  "Unknown (or deprecated) Parameter 'INVALIDPARAMNAME_BASE';Unknown (or deprecated) Parameter 'algorithm:invalidParamName';${_invalid_final}"
+  -ini "${DATA_DIR_TOPP}/degenerate_cases/PPHiRes_invalidParamName.ini")
+add_parameter_failure(TOPP_CLI_INVALIDNAME "Unknown option(s);-algorithm:invalidParamName;given. Aborting!"
+  -algorithm:invalidParamName somevalue)
 
 #------------------------------------------------------------------------------
 # TOPP tests

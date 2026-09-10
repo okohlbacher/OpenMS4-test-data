@@ -8,6 +8,9 @@ no C++ compiler and performs no OpenMS build.
 Configure with `cmake -S . -B build`, then install with
 `cmake --install build --prefix /sdk/test-data`. Source archives must additionally
 set `OPENMS4_SOURCE_REVISION` to their exact package commit.
+Archive builds must also declare `OPENMS4_SOURCE_DIRTY`; the installed harness
+preserves both values. `OPENMS4_REQUIRE_CLEAN_SOURCE=ON` rejects modified sources
+when producing publishable packages.
 
 Consumers find `OpenMSTestData 1.0.0 EXACT CONFIG`. Its config exports the relocatable
 `OpenMSTestData_TOPP_DIR` and `OpenMSTestData_REGRESSION_SOURCE_DIR`. The latter is a
@@ -28,6 +31,11 @@ manifests in `share/openms4/tools/*.tools.tsv` determine the tool names used for
 manifests, supply `OPENMS4_TOOL_NAMES` explicitly as a semicolon-separated list.
 The directory is not globbed for arbitrary executables or DLLs. Windows executable
 suffixes are handled separately from logical tool names.
+A flat custom binary directory such as `<prefix>/custom bin` uses the same
+sibling `share/openms4/tools` discovery and is covered by registration tests.
+For a nested binary directory, pass `OPENMS4_TOOL_NAMES` explicitly; this harness
+still requires all selected tools together in `OPENMS4_TOOLS_BIN` and does not
+resolve arbitrary per-tool paths from manifest column four.
 
 Set `WITH_GUI=ON` for desktop numerical tests and `HAS_XSERVER=ON` for tests that
 require a display. External engine discovery and its upstream version checks stay
@@ -41,13 +49,22 @@ test build directory. The fixture working copy needs roughly 433 MB.
 Run the registered numerical tests with `ctest --test-dir <regression-build>` only
 after building/installing the products. This is a full-suite acceptance harness;
 individual product repositories also have separate smoke tests.
+The six PeakPickerHiRes invalid-parameter cases require exit code 6
+(`ILLEGAL_PARAMETERS`) and case-specific diagnostics through
+`cmake/ExpectToolFailure.cmake`. An unrelated ordinary failure, loader failure or
+signal cannot satisfy these tests. Other preserved numerical negatives retain
+their original assertions until migrated with their own known diagnostics.
 
 ## Packaging validation
 
-`python3 -m unittest discover -s tests -v` passes seven tests. They configure and
+`python3 -m unittest discover -s tests -v` passes 14 tests. Nine configure and
 install this compiler-free package into temporary directories, relocate the
 installation, register the full suite with mock core metadata and placeholder
 binaries, and inspect CTest's test listing. They check installed-only paths,
 manifest filtering, Windows `.exe` paths, copied fixtures, pinned runtime data,
-and unchanged external-engine conditions. No placeholder or OpenMS executable is
-run, and numerical correctness is not claimed.
+and unchanged external-engine conditions, including custom binary directories
+with spaces and the six explicit negative assertions. Five further checks run
+controlled Python children through the assertion wrapper, covering expected
+failure, wrong status/reason, loader errors and signal termination. No placeholder
+or OpenMS executable is run, and numerical correctness is not claimed. Execute
+the six native negatives again after installing the actual tool package.

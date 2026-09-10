@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CMAKE = shutil.which("cmake")
 CTEST = shutil.which("ctest")
-REVISION = "a" * 40
+REVISION = subprocess.check_output(["git", "-C", str(ROOT), "rev-parse", "HEAD"], text=True).strip()
 
 
 @unittest.skipUnless(CMAKE and CTEST, "CMake and CTest are required")
@@ -154,6 +154,37 @@ endif()
         self.assertNotIn("TOPPWRITEINI_FuzzyDiff.exe", tests)
         self.assertTrue(tests["TOPPWRITEINI_FuzzyDiff"]["command"][0].endswith("FuzzyDiff.exe"))
         self.assertTrue(tests["TOPP_FLASHDeconv_1"]["command"][0].endswith("FLASHDeconv.exe"))
+
+    def test_flat_custom_binary_directory_with_spaces(self):
+        suite = self.directory / "custom suite"
+        shutil.copytree(self.suite, suite)
+        binary = suite / "custom bin"
+        (suite / "bin").rename(binary)
+        manifest = suite / "share/openms4/tools/mock.tools.tsv"
+        manifest.write_text(manifest.read_text().replace("\tbin/", "\tcustom bin/"))
+        build = self.directory / "registration-custom-bin"
+        self._command([CMAKE, "-S", self.harness, "-B", build,
+                       "-DOPENMS4_REGRESSION_TESTS=ON", f"-DOpenMSData_DIR={self.mock}",
+                       f"-DOPENMS4_TOOLS_BIN={binary}",
+                       "-DCMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH=FALSE",
+                       "-DCMAKE_FIND_USE_CMAKE_SYSTEM_PATH=FALSE",
+                       "-DCMAKE_MAKE_PROGRAM=/usr/bin/make"])
+        result = self._command([CTEST, "--test-dir", build, "--show-only=json-v1"])
+        tests = {test["name"]: test for test in json.loads(result.stdout)["tests"]}
+        self.assertEqual(tests["TOPPWRITEINI_FuzzyDiff"]["command"][0], str(binary / "FuzzyDiff"))
+        self.assertIn(f"-DTOOL_EXECUTABLE={binary}/PeakPickerHiRes",
+                      tests["TOPP_CLI_INVALIDVALUE"]["command"])
+
+    def test_parameter_negatives_require_expected_status_and_diagnostics(self):
+        by_name = {test["name"]: test for test in self.tests}
+        for suffix in ("INI_INVALIDVALUE", "CLI_INVALIDVALUE", "INI_INVALIDVALUE_SECTION",
+                       "CLI_INVALIDVALUE_SECTION", "INI_INVALIDNAME", "CLI_INVALIDNAME"):
+            test = by_name["TOPP_" + suffix]
+            self.assertIn("-DEXPECTED_EXIT_CODE=6", test["command"])
+            self.assertTrue(any(arg.startswith("-DEXPECTED_DIAGNOSTICS=") for arg in test["command"]))
+            properties = {item["name"]: item["value"] for item in test["properties"]}
+            self.assertFalse(properties.get("WILL_FAIL", False))
+            self.assertTrue(test["command"][-1].endswith("ExpectToolFailure.cmake"))
 
     def test_runtime_data_is_pinned_for_all_regression_processes(self):
         for test in self.tests:
