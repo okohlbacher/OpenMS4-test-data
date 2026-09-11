@@ -2604,8 +2604,9 @@ set_tests_properties("TOPP_Resampler_2_out1" PROPERTIES DEPENDS "TOPP_Resampler_
 # OpenNuXL
 
 if (NOT MSVC) # currently some minor numeric differences on windows. needs fixing
-  # Disabled on macOS ARM64 due to test failures (see GitHub issue)
-  if (NOT (APPLE AND CMAKE_HOST_SYSTEM_PROCESSOR STREQUAL "arm64"))
+  # Enabled on macOS ARM64: every case below, including all score and TSV comparisons,
+  # passes against Core 4. macOS x64 stays excluded until a run there confirms it.
+  if (NOT APPLE OR CMAKE_HOST_SYSTEM_PROCESSOR STREQUAL "arm64")
     add_test("TOPP_OpenNuXL_1" ${TOPP_BIN_PATH}/OpenNuXL${OPENMS4_EXECUTABLE_SUFFIX} -test -precursor:mass_tolerance 10.0 -in
     ${DATA_DIR_TOPP}/OpenNuXL_1_input.mzML -database ${DATA_DIR_TOPP}/OpenNuXL_1_input.fasta -out ${TESTS_TEMP_DIR}/OpenNuXL_1_output.tmp.idXML -out_tsv ${TESTS_TEMP_DIR}/OpenNuXL_1_output_tsv.tmp -NuXL:decoys "false" )
     add_test("TOPP_OpenNuXL_1_out1" ${DIFF} -whitelist "IdentificationRun date"
@@ -2617,8 +2618,8 @@ if (NOT MSVC) # currently some minor numeric differences on windows. needs fixin
     set_tests_properties("TOPP_OpenNuXL_adduct_in_sequence" PROPERTIES DEPENDS "TOPP_OpenNuXL_1")
   endif()
   # test internal decoy generation
-  # Disabled on macOS due to floating-point accuracy issues (see GitHub issue)
-  if (NOT APPLE)
+  # Excluded on macOS x64 only; ARM64 reproduces the reference output.
+  if (NOT APPLE OR CMAKE_HOST_SYSTEM_PROCESSOR STREQUAL "arm64")
     add_test("TOPP_OpenNuXL_2" ${TOPP_BIN_PATH}/OpenNuXL${OPENMS4_EXECUTABLE_SUFFIX} -test -precursor:mass_tolerance 10.0 -in
     ${DATA_DIR_TOPP}/OpenNuXL_1_input.mzML -database ${DATA_DIR_TOPP}/OpenNuXL_1_input.fasta -out ${TESTS_TEMP_DIR}/OpenNuXL_2_output.tmp.idXML -NuXL:decoys "true" )
     add_test("TOPP_OpenNuXL_2_out1" ${DIFF} -whitelist "IdentificationRun date"
@@ -2627,8 +2628,8 @@ if (NOT MSVC) # currently some minor numeric differences on windows. needs fixin
   endif()
 
   # reporting of multiple hits and tsv output
-  # Disabled on macOS due to floating-point accuracy issues (see GitHub issue)
-  if (NOT APPLE)
+  # Excluded on macOS x64 only; ARM64 reproduces the reference output.
+  if (NOT APPLE OR CMAKE_HOST_SYSTEM_PROCESSOR STREQUAL "arm64")
     add_test("TOPP_OpenNuXL_3" ${TOPP_BIN_PATH}/OpenNuXL${OPENMS4_EXECUTABLE_SUFFIX} -test -precursor:mass_tolerance 10.0 -in
     ${DATA_DIR_TOPP}/OpenNuXL_1_input.mzML -database ${DATA_DIR_TOPP}/OpenNuXL_1_input.fasta -out ${TESTS_TEMP_DIR}/OpenNuXL_3_output.tmp.idXML -report:top_hits 3 -out_tsv ${TESTS_TEMP_DIR}/OpenNuXL_3_output2.tmp.tsv -NuXL:scoring fast)
     add_test("TOPP_OpenNuXL_3_out1" ${DIFF} -whitelist "IdentificationRun date"
@@ -2639,8 +2640,8 @@ if (NOT MSVC) # currently some minor numeric differences on windows. needs fixin
   endif()
 
   # reporting of multiple hits and tsv output and decoy generation
-  # Disabled on macOS due to floating-point accuracy issues (see GitHub issue)
-  if (NOT APPLE)
+  # Excluded on macOS x64 only; ARM64 reproduces the reference output.
+  if (NOT APPLE OR CMAKE_HOST_SYSTEM_PROCESSOR STREQUAL "arm64")
     add_test("TOPP_OpenNuXL_4" ${TOPP_BIN_PATH}/OpenNuXL${OPENMS4_EXECUTABLE_SUFFIX} -test -precursor:mass_tolerance 10.0 -in
     ${DATA_DIR_TOPP}/OpenNuXL_1_input.mzML -NuXL:decoys "true" -database ${DATA_DIR_TOPP}/OpenNuXL_1_input.fasta -out ${TESTS_TEMP_DIR}/OpenNuXL_4_output.tmp.idXML -report:top_hits 2 -out_tsv ${TESTS_TEMP_DIR}/OpenNuXL_4_output2.tmp.tsv -NuXL:scoring fast)
     add_test("TOPP_OpenNuXL_4_out1" ${DIFF} -whitelist "IdentificationRun date"
@@ -2651,8 +2652,8 @@ if (NOT MSVC) # currently some minor numeric differences on windows. needs fixin
   endif()
 
   # test internal decoy generation - slow scoring
-  # Disabled on macOS due to floating-point accuracy issues (see GitHub issue)
-  if (NOT APPLE)
+  # Excluded on macOS x64 only; ARM64 reproduces the reference output.
+  if (NOT APPLE OR CMAKE_HOST_SYSTEM_PROCESSOR STREQUAL "arm64")
     add_test("TOPP_OpenNuXL_5" ${TOPP_BIN_PATH}/OpenNuXL${OPENMS4_EXECUTABLE_SUFFIX} -test -precursor:mass_tolerance 10.0 -in
     ${DATA_DIR_TOPP}/OpenNuXL_1_input.mzML -database ${DATA_DIR_TOPP}/OpenNuXL_1_input.fasta -out ${TESTS_TEMP_DIR}/OpenNuXL_5_output.tmp.idXML -NuXL:decoys "true" -NuXL:scoring slow)
     add_test("TOPP_OpenNuXL_5_out1" ${DIFF} -whitelist "IdentificationRun date"
@@ -2661,8 +2662,8 @@ if (NOT MSVC) # currently some minor numeric differences on windows. needs fixin
   endif()
 
   # reporting of multiple hits and tsv output and decoy generation with huge mass window so that all candidates are scored
-  # Disabled on macOS due to floating-point accuracy issues (see GitHub issue)
-  if (NOT APPLE)
+  # Excluded on macOS x64 only; ARM64 reproduces the reference output.
+  if (NOT APPLE OR CMAKE_HOST_SYSTEM_PROCESSOR STREQUAL "arm64")
     add_test("TOPP_OpenNuXL_6" ${TOPP_BIN_PATH}/OpenNuXL${OPENMS4_EXECUTABLE_SUFFIX} -test -precursor:mass_tolerance 1e9 -in
     ${DATA_DIR_TOPP}/OpenNuXL_1_input.mzML -NuXL:decoys "true" -database ${DATA_DIR_TOPP}/OpenNuXL_1_input.fasta -out ${TESTS_TEMP_DIR}/OpenNuXL_6_output.tmp.idXML -report:top_hits 2 -out_tsv ${TESTS_TEMP_DIR}/OpenNuXL_6_output2.tmp.tsv -NuXL:scoring slow)
     add_test("TOPP_OpenNuXL_6_out1" ${DIFF} -whitelist "IdentificationRun date"
