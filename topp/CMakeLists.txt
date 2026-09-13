@@ -2026,6 +2026,20 @@ ${TOPP_BIN_PATH}/OpenSwathDecoyGenerator${OPENMS4_EXECUTABLE_SUFFIX} -test -in $
   set_tests_properties("TOPP_OpenSwathMzMLFileCacher_test_4_step2" PROPERTIES DEPENDS "TOPP_OpenSwathMzMLFileCacher_test_4_step1")
   set_tests_properties("TOPP_OpenSwathMzMLFileCacher_test_4_out1" PROPERTIES DEPENDS "TOPP_OpenSwathMzMLFileCacher_test_4_step2")
 
+  # Low-memory conversions to sqMass must store what the in-memory conversion of test 4 stores
+  add_test("TOPP_OpenSwathMzMLFileCacher_test_6_step1" ${TOPP_BIN_PATH}/OpenSwathMzMLFileCacher${OPENMS4_EXECUTABLE_SUFFIX} -in ${DATA_DIR_TOPP}/OpenSwathMzMLFileCacher_2_input.chrom.mzML -out ${TESTS_TEMP_DIR}/OpenSwathMzMLFileCacher_6_input.tmp.sqMass -test -process_lowmemory)
+  add_test("TOPP_OpenSwathMzMLFileCacher_test_6_step2" ${TOPP_BIN_PATH}/OpenSwathMzMLFileCacher${OPENMS4_EXECUTABLE_SUFFIX} -in ${TESTS_TEMP_DIR}/OpenSwathMzMLFileCacher_6_input.tmp.sqMass -out ${TESTS_TEMP_DIR}/OpenSwathMzMLFileCacher_6_output.tmp.mzML -test)
+  add_test("TOPP_OpenSwathMzMLFileCacher_test_6_out1" ${DIFF} -whitelist ${INDEX_WHITELIST} -in1 ${TESTS_TEMP_DIR}/OpenSwathMzMLFileCacher_6_output.tmp.mzML -in2 ${DATA_DIR_TOPP}/OpenSwathMzMLFileCacher_4_output.mzML)
+  set_tests_properties("TOPP_OpenSwathMzMLFileCacher_test_6_step2" PROPERTIES DEPENDS "TOPP_OpenSwathMzMLFileCacher_test_6_step1")
+  set_tests_properties("TOPP_OpenSwathMzMLFileCacher_test_6_out1" PROPERTIES DEPENDS "TOPP_OpenSwathMzMLFileCacher_test_6_step2")
+
+  add_test("TOPP_OpenSwathMzMLFileCacher_test_7_step1" ${TOPP_BIN_PATH}/OpenSwathMzMLFileCacher${OPENMS4_EXECUTABLE_SUFFIX} -in ${TESTS_TEMP_DIR}/OpenSwathMzMLFileCacher_4_input.tmp.sqMass -out ${TESTS_TEMP_DIR}/OpenSwathMzMLFileCacher_7_input.tmp.sqMass -test -process_lowmemory)
+  add_test("TOPP_OpenSwathMzMLFileCacher_test_7_step2" ${TOPP_BIN_PATH}/OpenSwathMzMLFileCacher${OPENMS4_EXECUTABLE_SUFFIX} -in ${TESTS_TEMP_DIR}/OpenSwathMzMLFileCacher_7_input.tmp.sqMass -out ${TESTS_TEMP_DIR}/OpenSwathMzMLFileCacher_7_output.tmp.mzML -test)
+  add_test("TOPP_OpenSwathMzMLFileCacher_test_7_out1" ${DIFF} -whitelist ${INDEX_WHITELIST} -in1 ${TESTS_TEMP_DIR}/OpenSwathMzMLFileCacher_7_output.tmp.mzML -in2 ${DATA_DIR_TOPP}/OpenSwathMzMLFileCacher_4_output.mzML)
+  set_tests_properties("TOPP_OpenSwathMzMLFileCacher_test_7_step1" PROPERTIES DEPENDS "TOPP_OpenSwathMzMLFileCacher_test_4_step1")
+  set_tests_properties("TOPP_OpenSwathMzMLFileCacher_test_7_step2" PROPERTIES DEPENDS "TOPP_OpenSwathMzMLFileCacher_test_7_step1")
+  set_tests_properties("TOPP_OpenSwathMzMLFileCacher_test_7_out1" PROPERTIES DEPENDS "TOPP_OpenSwathMzMLFileCacher_test_7_step2")
+
   # Test with low-memory option
   add_test("TOPP_OpenSwathMzMLFileCacher_test_5_step1" ${TOPP_BIN_PATH}/OpenSwathMzMLFileCacher${OPENMS4_EXECUTABLE_SUFFIX} -in ${DATA_DIR_TOPP}/OpenSwathMzMLFileCacher_1_input.mzML -out ${TESTS_TEMP_DIR}/OpenSwathMzMLFileCacher_1_input.cached.tmp.mzML -test -process_lowmemory)
   add_test("TOPP_OpenSwathMzMLFileCacher_test_5_step2" ${TOPP_BIN_PATH}/OpenSwathMzMLFileCacher${OPENMS4_EXECUTABLE_SUFFIX} -in ${TESTS_TEMP_DIR}/OpenSwathMzMLFileCacher_1_input.cached.tmp.mzML -out ${TESTS_TEMP_DIR}/OpenSwathMzMLFileCacher_1_output.tmp.mzML -convert_back -test)
