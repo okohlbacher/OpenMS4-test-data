@@ -105,7 +105,7 @@
 			<softwareRef ref="so_in_0" />
 		</instrumentConfiguration>
 	</instrumentConfigurationList>
-	<dataProcessingList count="33">
+	<dataProcessingList count="1">
 		<dataProcessing id="dp_sp_0">
 			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_0">
 				<cvParam cvRef="MS" accession="MS:1000034" name="charge deconvolution" />
@@ -510,12 +510,12 @@
 </mzML>
 <indexList count="1">
 	<index name="spectrum">
-		<offset idRef="spectrum=10">8787</offset>
-		<offset idRef="spectrum=12">14440</offset>
-		<offset idRef="spectrum=14">19472</offset>
-		<offset idRef="spectrum=15">24504</offset>
+		<offset idRef="spectrum=10">8786</offset>
+		<offset idRef="spectrum=12">14439</offset>
+		<offset idRef="spectrum=14">19471</offset>
+		<offset idRef="spectrum=15">24503</offset>
 	</index>
 </indexList>
-<indexListOffset>32278</indexListOffset>
+<indexListOffset>32277</indexListOffset>
 <fileChecksum>0</fileChecksum>
 </indexedmzML>

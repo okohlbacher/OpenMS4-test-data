@@ -45,7 +45,7 @@
 	<run id="ru_0" defaultInstrumentConfigurationRef="ic_0" sampleRef="sa_0">
 	</run>
 </mzML>
-<indexList count="0">
+<indexList count="1">
 	<index name="dummy">
 		<offset idRef="dummy">-1</offset>
 	</index>
