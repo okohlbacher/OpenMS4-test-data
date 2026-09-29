@@ -56,11 +56,11 @@
 				<cvParam cvRef="MS" accession="MS:1000544" name="Conversion to mzML" />
 				<userParam name="warning" type="xsd:string" value="fictional processing method used to fulfill format requirements"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_1">
+			<processingMethod order="1" softwareRef="so_dp_sp_0_pm_1">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2021-11-26+11:16" />
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_2">
+			<processingMethod order="2" softwareRef="so_dp_sp_0_pm_2">
 				<cvParam cvRef="MS" accession="MS:1000035" name="peak picking" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="1999-12-31+23:59" />
 				<userParam name="parameter: mode" type="xsd:string" value="test_mode"/>

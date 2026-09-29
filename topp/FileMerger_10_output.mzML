@@ -103,7 +103,7 @@
 			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_0">
 				<cvParam cvRef="MS" accession="MS:1000544" name="Conversion to mzML" />
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_1">
+			<processingMethod order="1" softwareRef="so_dp_sp_0_pm_1">
 				<cvParam cvRef="MS" accession="MS:1000530" name="file format conversion" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="1999-12-31+23:59" />
 				<userParam name="parameter: mode" type="xsd:string" value="test_mode"/>

@@ -101,7 +101,7 @@
 			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_0">
 				<cvParam cvRef="MS" accession="MS:1000544" name="Conversion to mzML" />
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_1">
+			<processingMethod order="1" softwareRef="so_dp_sp_0_pm_1">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2013-01-25+13:32" />
 				<userParam name="parameter: in" type="xsd:string" value="..\Toni_20121101_GM_70_Cel_pSILAC_16h_02.mzML.gz"/>
@@ -157,7 +157,7 @@
 				<userParam name="parameter: algorithm:SignalToNoise:min_required_elements" type="xsd:integer" value="10"/>
 				<userParam name="parameter: algorithm:SignalToNoise:noise_for_empty_window" type="xsd:double" value="1e+20"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_2">
+			<processingMethod order="2" softwareRef="so_dp_sp_0_pm_2">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2013-01-25+13:37" />
 				<userParam name="parameter: in" type="xsd:string" value="12_Cand_RT-11759sec_WVAIGDENYGEGSSR_raw2.mzML"/>
@@ -213,7 +213,7 @@
 				<userParam name="parameter: algorithm:SignalToNoise:min_required_elements" type="xsd:integer" value="10"/>
 				<userParam name="parameter: algorithm:SignalToNoise:noise_for_empty_window" type="xsd:double" value="1e+20"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_3">
+			<processingMethod order="3" softwareRef="so_dp_sp_0_pm_3">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2013-01-25+17:06" />
 				<userParam name="parameter: in" type="xsd:string" value="in.mzML"/>
@@ -270,7 +270,7 @@
 				<userParam name="parameter: algorithm:SignalToNoise:noise_for_empty_window" type="xsd:double" value="1e+20"/>
 				<userParam name="parameter: pc_mz" type="xsd:string" value="800:900"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_4">
+			<processingMethod order="4" softwareRef="so_dp_sp_0_pm_4">
 				<cvParam cvRef="MS" accession="MS:1000530" name="file format conversion" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2013-01-25+17:07" />
 				<userParam name="parameter: in" type="xsd:string" value="[in_l1.mzML, in_l2.mzML]"/>
@@ -288,7 +288,7 @@
 				<userParam name="parameter: ms_level" type="xsd:integer" value="2"/>
 				<userParam name="parameter: user_ms_level" type="xsd:string" value="false"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_5">
+			<processingMethod order="5" softwareRef="so_dp_sp_0_pm_5">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="1999-12-31+23:59" />
 				<userParam name="parameter: mode" type="xsd:string" value="test_mode"/>
@@ -298,7 +298,7 @@
 			<processingMethod order="0" softwareRef="so_dp_sp_1_pm_0">
 				<cvParam cvRef="MS" accession="MS:1000544" name="Conversion to mzML" />
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_1_pm_1">
+			<processingMethod order="1" softwareRef="so_dp_sp_1_pm_1">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2013-01-25+13:32" />
 				<userParam name="parameter: in" type="xsd:string" value="..\Toni_20121101_GM_70_Cel_pSILAC_16h_02.mzML.gz"/>
@@ -354,7 +354,7 @@
 				<userParam name="parameter: algorithm:SignalToNoise:min_required_elements" type="xsd:integer" value="10"/>
 				<userParam name="parameter: algorithm:SignalToNoise:noise_for_empty_window" type="xsd:double" value="1e+20"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_1_pm_2">
+			<processingMethod order="2" softwareRef="so_dp_sp_1_pm_2">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2013-01-25+13:37" />
 				<userParam name="parameter: in" type="xsd:string" value="12_Cand_RT-11759sec_WVAIGDENYGEGSSR_raw2.mzML"/>
@@ -410,7 +410,7 @@
 				<userParam name="parameter: algorithm:SignalToNoise:min_required_elements" type="xsd:integer" value="10"/>
 				<userParam name="parameter: algorithm:SignalToNoise:noise_for_empty_window" type="xsd:double" value="1e+20"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_1_pm_3">
+			<processingMethod order="3" softwareRef="so_dp_sp_1_pm_3">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2013-01-25+17:02" />
 				<userParam name="parameter: in" type="xsd:string" value="in.mzML"/>
@@ -467,7 +467,7 @@
 				<userParam name="parameter: algorithm:SignalToNoise:noise_for_empty_window" type="xsd:double" value="1e+20"/>
 				<userParam name="parameter: pc_mz" type="xsd:string" value=":"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_1_pm_4">
+			<processingMethod order="4" softwareRef="so_dp_sp_1_pm_4">
 				<cvParam cvRef="MS" accession="MS:1000530" name="file format conversion" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2013-01-25+17:07" />
 				<userParam name="parameter: in" type="xsd:string" value="[in_l1.mzML, in_l2.mzML]"/>
@@ -485,7 +485,7 @@
 				<userParam name="parameter: ms_level" type="xsd:integer" value="2"/>
 				<userParam name="parameter: user_ms_level" type="xsd:string" value="false"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_1_pm_5">
+			<processingMethod order="5" softwareRef="so_dp_sp_1_pm_5">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="1999-12-31+23:59" />
 				<userParam name="parameter: mode" type="xsd:string" value="test_mode"/>

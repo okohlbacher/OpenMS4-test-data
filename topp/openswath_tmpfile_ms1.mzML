@@ -50,7 +50,7 @@
 				<userParam name="high_intensity_threshold" type="xsd:double" value="10.9"/>
 				<userParam name="p1" type="xsd:string" value="value1"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_1">
+			<processingMethod order="1" softwareRef="so_dp_sp_0_pm_1">
 				<cvParam cvRef="MS" accession="MS:1000544" name="Conversion to mzML" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2001-02-03+04:10" />
 				<userParam name="p2" type="xsd:string" value="value2"/>

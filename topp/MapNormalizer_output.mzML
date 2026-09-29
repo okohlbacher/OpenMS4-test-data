@@ -84,12 +84,12 @@
 				<userParam name="processing 1#type 1" type="xsd:string" value="done 1"/>
 				<userParam name="processing 2#type 2" type="xsd:string" value="done 2"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_1">
+			<processingMethod order="1" softwareRef="so_dp_sp_0_pm_1">
 				<cvParam cvRef="MS" accession="MS:1000544" name="Conversion to mzML" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="1999-12-31+23:59" />
 				<userParam name="parameter: mode" type="xsd:string" value="test_mode"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_2">
+			<processingMethod order="2" softwareRef="so_dp_sp_0_pm_2">
 				<cvParam cvRef="MS" accession="MS:1001484" name="intensity normalization" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="1999-12-31+23:59" />
 				<userParam name="parameter: mode" type="xsd:string" value="test_mode"/>

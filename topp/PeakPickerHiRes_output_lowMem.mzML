@@ -82,7 +82,7 @@
 				<cvParam cvRef="MS" accession="MS:1000543" name="data processing action" />
 				<userParam name="#type" type="xsd:string" value="conversion"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_1">
+			<processingMethod order="1" softwareRef="so_dp_sp_0_pm_1">
 				<cvParam cvRef="MS" accession="MS:1000544" name="Conversion to mzML" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2009-11-05+19:21" />
 				<userParam name="parameter: ini" type="xsd:string" value="/IMSB/scratch/weisserh/MS-Data/1/TOPPAS_tmp/001_FileConverter/FileConverter.ini"/>
@@ -94,28 +94,28 @@
 				<userParam name="parameter: threads" type="xsd:integer" value="7"/>
 				<userParam name="parameter: test" type="xsd:string" value="false"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_2">
+			<processingMethod order="2" softwareRef="so_dp_sp_0_pm_2">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2010-04-27+13:40" />
 				<userParam name="parameter: in" type="xsd:string" value="B08-08318_p.mzML"/>
 				<userParam name="parameter: out" type="xsd:string" value="part.mzML"/>
 				<userParam name="parameter: rt" type="xsd:string" value="4200:4203"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_3">
+			<processingMethod order="3" softwareRef="so_dp_sp_0_pm_3">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2010-04-27+13:45" />
 				<userParam name="parameter: in" type="xsd:string" value="part.mzML"/>
 				<userParam name="parameter: out" type="xsd:string" value="part.mzML"/>
 				<userParam name="parameter: rt" type="xsd:string" value="4200.6:"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_4">
+			<processingMethod order="4" softwareRef="so_dp_sp_0_pm_4">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2010-04-27+13:46" />
 				<userParam name="parameter: in" type="xsd:string" value="part.mzML"/>
 				<userParam name="parameter: out" type="xsd:string" value="part.mzML"/>
 				<userParam name="parameter: rt" type="xsd:string" value=":4202.1"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_5">
+			<processingMethod order="5" softwareRef="so_dp_sp_0_pm_5">
 				<cvParam cvRef="MS" accession="MS:1000035" name="peak picking" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="1999-12-31+23:59" />
 				<userParam name="parameter: mode" type="xsd:string" value="test_mode"/>

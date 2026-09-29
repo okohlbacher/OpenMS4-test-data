@@ -78,7 +78,7 @@
 			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_0">
 				<cvParam cvRef="MS" accession="MS:1000544" name="Conversion to mzML" />
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_1">
+			<processingMethod order="1" softwareRef="so_dp_sp_0_pm_1">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2012-10-07+11:26" />
 				<userParam name="parameter: out" type="xsd:string" value="/Users/aiche/dev/data/iTRAQExample.mzML"/>
@@ -134,7 +134,7 @@
 				<userParam name="parameter: algorithm:SignalToNoise:min_required_elements" type="xsd:integer" value="10"/>
 				<userParam name="parameter: algorithm:SignalToNoise:noise_for_empty_window" type="xsd:double" value="1e+20"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_2">
+			<processingMethod order="2" softwareRef="so_dp_sp_0_pm_2">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2013-05-22+13:22" />
 				<userParam name="parameter: out" type="xsd:string" value="testing.mzML"/>
@@ -195,7 +195,7 @@
 				<userParam name="parameter: f_and_c:size" type="xsd:string" value=":"/>
 				<userParam name="parameter: f_and_c:remove_meta" type="xsd:string" value="[]"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_3">
+			<processingMethod order="3" softwareRef="so_dp_sp_0_pm_3">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="1999-12-31+23:59" />
 				<userParam name="parameter: mode" type="xsd:string" value="test_mode"/>

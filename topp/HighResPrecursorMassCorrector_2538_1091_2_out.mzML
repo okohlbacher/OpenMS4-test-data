@@ -88,7 +88,7 @@
 			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_0">
 				<cvParam cvRef="MS" accession="MS:1000544" name="Conversion to mzML" />
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_1">
+			<processingMethod order="1" softwareRef="so_dp_sp_0_pm_1">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2014-11-30+14:41" />
 				<userParam name="parameter: in" type="xsd:string" value="P:\instrument_comparison\mzML\KT_Pan_171114_CWC2_XL.mzML"/>
@@ -156,7 +156,7 @@
 				<userParam name="parameter: algorithm:SignalToNoise:min_required_elements" type="xsd:integer" value="10"/>
 				<userParam name="parameter: algorithm:SignalToNoise:noise_for_empty_window" type="xsd:double" value="1e+20"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_2">
+			<processingMethod order="2" softwareRef="so_dp_sp_0_pm_2">
 				<cvParam cvRef="MS" accession="MS:1000035" name="peak picking" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2014-11-30+14:58" />
 				<userParam name="parameter: in" type="xsd:string" value="C:/Users/sqamar/AppData/Local/Temp/2014-11-30_142807_p1608-07-x64_3068_1/TOPPAS_tmp/peakpick/002_FileFilter/out/KT_Pan_171114_CWC2_XL.mzML"/>
@@ -170,7 +170,7 @@
 				<userParam name="parameter: algorithm:signal_to_noise" type="xsd:double" value="0"/>
 				<userParam name="parameter: algorithm:ms1_only" type="xsd:string" value="true"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_3">
+			<processingMethod order="3" softwareRef="so_dp_sp_0_pm_3">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2014-11-30+17:34" />
 				<userParam name="parameter: in" type="xsd:string" value="P:\instrument_comparison\peakpick\TOPPAS_out\004-PeakPickerHiRes\KT_Pan_171114_CWC2_XL_HF_picked.mzML"/>
@@ -238,7 +238,7 @@
 				<userParam name="parameter: algorithm:SignalToNoise:min_required_elements" type="xsd:integer" value="10"/>
 				<userParam name="parameter: algorithm:SignalToNoise:noise_for_empty_window" type="xsd:double" value="1e+20"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_4">
+			<processingMethod order="4" softwareRef="so_dp_sp_0_pm_4">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2014-12-23+13:56" />
 			</processingMethod>

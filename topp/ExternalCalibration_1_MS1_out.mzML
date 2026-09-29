@@ -85,7 +85,7 @@
 			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_0">
 				<cvParam cvRef="MS" accession="MS:1000544" name="Conversion to mzML" />
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_1">
+			<processingMethod order="1" softwareRef="so_dp_sp_0_pm_1">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2013-12-12+18:35" />
 				<userParam name="parameter: in" type="xsd:string" value="Syntaxtest_noindex.mzML"/>
@@ -157,7 +157,7 @@
 				<userParam name="parameter: algorithm:SignalToNoise:min_required_elements" type="xsd:integer" value="10"/>
 				<userParam name="parameter: algorithm:SignalToNoise:noise_for_empty_window" type="xsd:double" value="1.0e20"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_2">
+			<processingMethod order="2" softwareRef="so_dp_sp_0_pm_2">
 				<cvParam cvRef="MS" accession="MS:1000035" name="peak picking" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2013-12-12+18:36" />
 				<userParam name="parameter: in" type="xsd:string" value="quant_test.mzML"/>
@@ -180,7 +180,7 @@
 				<userParam name="parameter: algorithm:spacing_difference" type="xsd:double" value="1.5"/>
 				<userParam name="parameter: algorithm:ms1_only" type="xsd:string" value="false"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_3">
+			<processingMethod order="3" softwareRef="so_dp_sp_0_pm_3">
 				<cvParam cvRef="MS" accession="MS:1001485" name="m/z calibration" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="1999-12-31+23:59" />
 				<userParam name="parameter: mode" type="xsd:string" value="test_mode"/>

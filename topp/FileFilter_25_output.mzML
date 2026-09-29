@@ -74,7 +74,7 @@
 				<cvParam cvRef="MS" accession="MS:1000035" name="peak picking" />
 				<userParam name="#type" type="xsd:string" value="conversion"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_1">
+			<processingMethod order="1" softwareRef="so_dp_sp_0_pm_1">
 				<cvParam cvRef="MS" accession="MS:1000544" name="Conversion to mzML" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2012-08-28+11:49" />
 				<userParam name="parameter: ini" type="xsd:string" value="C:\Users\cbielow\AppData\Local\Temp\2012-08-28_114839_cd02-Win7_6424_1\TOPPAS_tmp\0_convert\002_FileConverter\FileConverter.ini"/>
@@ -89,7 +89,7 @@
 				<userParam name="parameter: threads" type="xsd:integer" value="1"/>
 				<userParam name="parameter: test" type="xsd:string" value="false"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_2">
+			<processingMethod order="2" softwareRef="so_dp_sp_0_pm_2">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="1999-12-31+23:59" />
 				<userParam name="parameter: mode" type="xsd:string" value="test_mode"/>

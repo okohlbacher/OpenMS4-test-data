@@ -114,13 +114,13 @@
 				<userParam name="URL" type="xsd:string" value="www.open-ms.de"/>
 				<userParam name="comment" type="xsd:string" value="ProcessingComment"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_1">
+			<processingMethod order="1" softwareRef="so_dp_sp_0_pm_1">
 				<cvParam cvRef="MS" accession="MS:1000544" name="Conversion to mzML" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2009-07-01+14:14" />
 				<userParam name="parameter: in" type="xsd:string" value="MzDataFile_1.mzData"/>
 				<userParam name="parameter: out" type="xsd:string" value="MzDataFile_1.mzML"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_2">
+			<processingMethod order="2" softwareRef="so_dp_sp_0_pm_2">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="1999-12-31+23:59" />
 				<userParam name="parameter: mode" type="xsd:string" value="test_mode"/>

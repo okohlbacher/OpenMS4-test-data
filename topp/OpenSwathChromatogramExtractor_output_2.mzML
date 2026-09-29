@@ -70,7 +70,7 @@
 				<userParam name="#type" type="xsd:string" value="conversion"/>
 				<userParam name="performed_on_spectra" type="xsd:string" value="true"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_1">
+			<processingMethod order="1" softwareRef="so_dp_sp_0_pm_1">
 				<cvParam cvRef="MS" accession="MS:1000544" name="Conversion to mzML" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2011-09-16+09:40" />
 				<userParam name="parameter: in" type="xsd:string" value="split_weisserh_L110812_004_SW-inf02_20.mzXML"/>
@@ -84,7 +84,7 @@
 				<userParam name="parameter: test" type="xsd:string" value="false"/>
 				<userParam name="performed_on_spectra" type="xsd:string" value="true"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_2">
+			<processingMethod order="2" softwareRef="so_dp_sp_0_pm_2">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2011-09-16+11:06" />
 				<userParam name="parameter: in" type="xsd:string" value="split_weisserh_L110812_004_SW-inf02_20.mzML.gz"/>
@@ -126,7 +126,7 @@
 				<userParam name="parameter: algorithm:SignalToNoise:noise_for_empty_window" type="xsd:double" value="1.0e20"/>
 				<userParam name="performed_on_spectra" type="xsd:string" value="true"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_3">
+			<processingMethod order="3" softwareRef="so_dp_sp_0_pm_3">
 				<cvParam cvRef="MS" accession="MS:1001484" name="intensity normalization" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2011-09-16+11:42" />
 				<userParam name="parameter: in" type="xsd:string" value="small_004_20.mzML"/>
@@ -138,7 +138,7 @@
 				<userParam name="parameter: test" type="xsd:string" value="false"/>
 				<userParam name="performed_on_spectra" type="xsd:string" value="true"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_4">
+			<processingMethod order="4" softwareRef="so_dp_sp_0_pm_4">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2011-09-16+12:22" />
 				<userParam name="parameter: in" type="xsd:string" value="dataOpenMS/weisserh/small_004_20Normalized.mzML"/>
@@ -180,7 +180,7 @@
 				<userParam name="parameter: algorithm:SignalToNoise:noise_for_empty_window" type="xsd:double" value="1.0e20"/>
 				<userParam name="performed_on_spectra" type="xsd:string" value="true"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_5">
+			<processingMethod order="5" softwareRef="so_dp_sp_0_pm_5">
 				<cvParam cvRef="MS" accession="MS:1001486" name="data filtering" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="2012-04-05+10:59" />
 				<userParam name="parameter: in" type="xsd:string" value="ExtractChromatogram_input_old.mzML"/>
@@ -222,7 +222,7 @@
 				<userParam name="parameter: algorithm:SignalToNoise:noise_for_empty_window" type="xsd:double" value="1.0e20"/>
 				<userParam name="performed_on_spectra" type="xsd:string" value="true"/>
 			</processingMethod>
-			<processingMethod order="0" softwareRef="so_dp_sp_0_pm_6">
+			<processingMethod order="6" softwareRef="so_dp_sp_0_pm_6">
 				<cvParam cvRef="MS" accession="MS:1000592" name="smoothing" />
 				<cvParam cvRef="MS" accession="MS:1000747" name="completion time" value="1999-12-31+23:59" />
 				<userParam name="parameter: mode" type="xsd:string" value="test_mode"/>
